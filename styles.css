@@ -38,14 +38,6 @@ body {
 ol, ul {
     list-style: none;
 }
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -56,6 +48,12 @@ table {
 :root {
     --h-fonts: Molle, serif;
     --text-fonts: Montserrat, sans-serif;
+    --yellow: #F6D64A;
+    --teal: #55BCD5;
+    --purple: #9B26B0;
+    --blue: #499BD2;
+    --dark-gray: #222222;
+    --light-gray: #EAEAEA;
 }
 
 h1, h2, h3 {
@@ -64,4 +62,525 @@ h1, h2, h3 {
 
 h4, p, q, small, nav, button, form {
     font-family: var(--text-fonts);
+}
+
+#skip, .sr-only {
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
+
+#skip:focus {
+    position: static;
+    visibility: visible;
+    overflow: visible;
+    width: auto;
+    height: auto;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* //////////////////////////// */
+/* menu styles */
+
+#menu-toggle {
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: 1;  
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    font-weight: bold;
+    width: 100vw;
+}
+
+#menu-toggle input {
+    display: block;
+    position: fixed;
+    padding: 20px 50px 20px 50px;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    right: 50px;
+    opacity: 0;
+    z-index: 2; 
+    -webkit-touch-callout: none;
+}
+
+#menu-toggle label {
+    padding: 20px 120px 20px 120px;
+    background-color: var(--yellow);
+    width: 50px;
+    float: right;
+    cursor: pointer;
+    margin-top: 50px;
+    z-index: 2;
+}
+
+#menu-toggle ul li {
+    padding: 40px;
+    background-color:  var(--teal);
+    border-bottom: solid 1px black;
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    left: -100000000px;
+}
+
+#menu-toggle ul {
+    margin-top: 50px;
+}
+
+#menu-toggle input:checked ~ ul li {
+    visibility: visible;
+    width: auto;
+    height: auto;
+    position: sticky;
+    left: auto;
+}
+
+#menu-toggle input:checked + label{
+    padding: 20px 5px 20px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    width: 100vw;
+    margin-top: 0;
+}
+
+#menu-toggle a {
+    text-decoration: none;
+    color: black;
+    padding: 40px;
+}
+
+#menu-toggle ul li:hover {
+    cursor: pointer;
+    background-color: var(--yellow);
+}
+
+
+
+
+/* /////////////////////////////// */
+/* header styles */
+
+header {
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(85,188,213,1) 100%);
+}
+
+header img {
+    position: relative;
+    width: 180px;
+    top: 40px;
+}
+
+h1{
+    font-size: 3rem;
+    margin-left: 40px;
+    margin-top: 90px;
+}
+
+header p {
+    margin-left: 40px;
+    font-size: 1.5rem;
+    width: 80vw;
+}
+
+/* /////////////////////////////// */
+/* main styles */
+
+h2 {
+    font-size: 2.5rem;
+    margin-left: 40px;
+    margin-top: 90px;
+}
+
+main p {
+    font-size: 1.2rem;
+    margin-left: 40px;
+    margin-top: 20px;
+    width: 80vw;
+    line-height: 2rem;
+}
+
+article img {
+    width: 100vw;
+    height: auto;
+    margin-top: 20px;
+}
+
+#plan {
+    background-color: var(--yellow);
+    width: 100vw;
+    padding-bottom: 30px;
+}
+
+h3 {
+    font-size: 2.5rem;
+    margin-left: 40px;
+    margin-top: 30px;
+    padding-top: 40px;
+    margin-bottom: 30px;
+    width: 70%;
+}
+
+#plan h4 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+#plan section {
+    background-color: var(--teal);
+    border: solid 4px white;
+    border-radius: 10px;
+    width: 80vw;
+    height: auto;
+    margin: 20px auto;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+#plan section img {
+    display: block;
+    height: 40%;
+    width: auto;
+    margin: 30px auto;
+}
+
+#testimonials section {
+    text-align: center;
+}
+
+#testimonials img {
+    display: block;
+    width: 40%;
+    height: auto;
+    margin: 10px auto;
+}
+
+#testimonials h4 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-top: 30px;
+    font-weight: bold;
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#testimonials p, #testimonials q {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+}
+
+#testimonials q {
+    font-style: italic;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#about {
+    background-color: var(--blue);
+    padding-bottom: 30px;
+}
+
+#about div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 60vw;
+    margin: 0 auto;
+}
+
+#about section {
+    width: 50%;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#about h4 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#about p {
+    display: inline;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#about img {
+    height: 20vw;
+    width: auto;
+}
+
+
+#contact h3 .form-required {
+    font-family: var(--text-fonts);
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+form {
+    display: block;
+    margin: 0 45px;
+}
+
+form label, legend {
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+fieldset label {
+    text-transform: none;
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+form input, select {
+    border: var(--purple) solid 3px;
+    padding: 25px 100px 25px 25px;
+    font-size: 1.5rem;
+    font-family: var(--text-fonts);
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+input[type="radio"] {
+    visibility: none;
+    display: none;
+}
+
+.radio-input {
+    width: 100px;
+    height: auto;
+}
+
+.radio-control {
+    margin-right: 50px;
+    padding: 10px 23px;
+    color: var(--purple);
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid currentColor;
+}
+
+input[type="radio"]:checked ~ .radio-control {
+    outline: max(2px, 0.1em) solid currentColor;
+    outline-offset: max(5px, 0.15em);
+    background-color: currentColor;
+}
+
+select {
+    appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.custom-select {
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+}
+
+select, .custom-select::after {
+    grid-area: select;
+}
+
+.custom-select::after {
+    content: "";
+    width: 3.5em;
+    height: 3em;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    background-color: var(--purple);
+    clip-path: polygon(100% 0, 100% 14%, 50% 100%, 0 12%, 0 0, 51% 86%);
+    display: grid;
+    justify-self: end;
+}
+
+#mySubmit {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    background-color: var(--purple);
+}
+
+footer {
+    margin-top: 10px;
+    background-color: var(--light-gray);
+    font-family: var(--text-fonts);
+    padding: 50px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-top: 30px;
+}
+
+@media screen and (min-width:732px) {
+    nav input, nav label {
+        display: none;
+        visibility: none;
+        overflow: none;
+        left: -100000000px;
+    }
+
+    header {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    header img {
+        height: 80%;
+        position: static;
+        width: auto;
+    }
+
+    header p {
+        width: 50vw;
+    }
+
+    #menu-toggle {
+        position: static;
+        grid-area: c;
+    }
+
+    #menu-toggle ul {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    #menu-toggle ul li{
+        visibility: visible;
+        position: static;
+        width: 150px;
+        height: auto;
+        padding: 20px 3px;
+        background-color: white;
+        border: none;
+    }
+
+    #menu-toggle ul a {
+        padding: 20px 3px;
+        text-align: center;
+        width: 150px;
+    }
+
+    #img-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    h2 {
+        margin-left: 90px;
+    }
+
+    #intro p{
+        margin-left: 90px;
+    }
+
+    #intro img {
+        width: 95%;
+    }
+
+    picture{
+        width: 103%;
+        grid-column: span 2;
+    }
+
+    #plan div{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #plan section{
+        width: 40%;
+    }
+
+    #plan img {
+        width: 100%;
+        height: auto;
+    }
+
+    #testimonials div{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #testimonials section {
+        width: 50%;
+    }
+
+    #testimonials p {
+        display: inline;
+    }
+
+    #about div {
+        width: 80vw;
+    }
+
+    #about section{
+        width: 20vw;
+        height: auto;
+    }
+
+    input{
+        width: 80%;
+    }
+
+    fieldset {
+        display: flex;
+    }
+
+    #mySubmit {
+        width: 40vw;
+        float: right;
+    }
+
+    #contact {
+        margin-bottom: 120px;
+    }
+
+    footer {
+        display: flex;
+        padding: 10px;
+        font-size: 1rem;
+    }
 }
